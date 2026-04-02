@@ -1,6 +1,8 @@
 # OARSI Biomechanics Resource Hub
 
-The **OARSI Biomechanics Resource Hub** is a community-driven, GitHub Pages-compatible directory for osteoarthritis (OA) biomechanics and closely related human movement research groups.
+The **OARSI Biomechanics Resource Hub** is a community-driven directory for osteoarthritis biomechanics and related human movement research.
+
+It is designed to help researchers discover labs, connect with collaborators, and explore shared resources across the field.
 
 Version 1 (v1) focuses on one core use case:
 
@@ -24,6 +26,12 @@ Future versions may expand to include shared code, datasets, and broader resourc
 - Automated metadata standardization.
 - Complex affiliation logic.
 
+## What this includes (v1)
+
+- A directory of labs, groups, and centers in OA biomechanics and related fields  
+- Basic information about research focus, methods, and collaboration opportunities  
+- Links to external websites, GitHub repositories, and resources where available  
+
 ## Repository structure
 
 ```text
@@ -43,7 +51,7 @@ Future versions may expand to include shared code, datasets, and broader resourc
 
 ## Content model (v1)
 
-- **One page = one lab, group, or center**.
+- Each entry corresponds to one lab, group, or center.
 - Each entry lives in `labs/` as a Markdown file.
 - The directory index is `labs/index.md`.
 
@@ -70,7 +78,14 @@ Future versions may expand to include shared code, datasets, and broader resourc
 - Notes for visitors / trainees
 - Additional collaboration interests
 
-> Rendering rule for v1: optional sections should be omitted when empty (do not leave blank headings).
+> Note: Entries do not need to be perfectly formatted when submitted. Optional sections and placeholders can be left as-is; maintainers may clean or standardize entries when preparing the site.
+
+## Contributing
+
+We welcome contributions from the community.
+
+You can add a new lab, group, or center, or update an existing entry.  
+The process is designed to be simple and accessible, even for users with limited GitHub experience.
 
 ## Getting started
 
