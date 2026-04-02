@@ -6,10 +6,10 @@ This page indexes v1 entries for the OARSI Biomechanics Resource Hub.
 
 ## Current entries (draft examples)
 
-1. [AI Biomechanics Lab (Draft Example)](ai-biomechanics-lab.md)
-2. [Human Motion OA Mechanics Lab (Draft Example)](human-motion-oa-mechanics-lab.md)
-3. [Collaborative OA Biomechanics Center (Draft Example)](collaborative-oa-biomechanics-center.md)
-4. [Translational Movement Core Facility (Draft Example)](translational-movement-core-facility.md)
+1. [Example Single-PI OA Biomechanics Lab](example-single-pi-oa-biomechanics-lab.md)
+2. [Example Human Movement OA Lab](example-human-movement-oa-lab.md)
+3. [Example Collaborative OA Biomechanics Center](example-collaborative-oa-biomechanics-center.md)
+4. [Example Translational Movement Core Facility](example-translational-movement-core-facility.md)
 
 ---
 
