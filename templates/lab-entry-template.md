@@ -27,8 +27,6 @@
 - [Focus area 1]
 - [Focus area 2]
 
-## Optional sections
-
 ### Equipment / methods (Optional)
 
 - [Example: instrumented gait analysis]
