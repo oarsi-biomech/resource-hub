@@ -10,6 +10,8 @@ Version 1 (v1) focuses on one core use case:
 
 Future versions may expand to include shared code, datasets, and broader resources.
 
+This is a growing, community-contributed resource — new labs are added regularly.
+
 ## v1 scope
 
 ### In scope
