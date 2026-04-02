@@ -4,7 +4,7 @@
 
 - **Name:** Collaborative OA Biomechanics Center
 - **Entry type:** center
-- **Lead investigator(s) / director(s):** Dr. A. Rivera, Dr. M. Chen, Dr. K. Okafor (Draft Example Leadership Team)
+- **Lead investigator(s) / director(s):** Example Leadership Team (multiple PIs)
 - **Institution:** Example Health + Engineering Consortium
 - **City:** Sample Metro
 - **Country:** Sample Country
@@ -14,7 +14,7 @@
 
 ## Short description
 
-This draft multi-PI center example represents a cross-disciplinary OA biomechanics initiative. The center coordinates labs focused on movement science, clinical biomechanics, and translational engineering methods.
+This draft multi-PI center example represents a cross-disciplinary OA biomechanics initiative that coordinates multiple single PI labs and shared resources.
 
 ## OA / biomechanics focus areas
 
@@ -24,9 +24,9 @@ This draft multi-PI center example represents a cross-disciplinary OA biomechani
 
 ## Affiliated centers / resources
 
-- [Human Motion OA Mechanics Lab (Draft Example)](human-motion-oa-mechanics-lab.md)
-- [AI Biomechanics Lab (Draft Example)](ai-biomechanics-lab.md)
-- [Translational Movement Core Facility (Draft Example)](translational-movement-core-facility.md)
+- [Single-PI Lab Example 1](../labs/human-motion-oa-mechanics-lab.md)
+- [Single-PI Lab Example 2](../labs/ai-biomechanics-lab.md)
+- [Shared Core Facility Example](../labs/translational-movement-core-facility.md)
 
 ## Notes for visitors / trainees
 
