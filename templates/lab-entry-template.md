@@ -1,6 +1,8 @@
 # [Entry Name]
 
-> Replace bracketed placeholders. Remove instructional text before submitting.
+> Fill in all required fields.
+> Optional sections can be left as-is (including placeholders or empty headings).
+> Maintainers may clean formatting or remove unused sections when preparing the site.
 
 ## Entry metadata
 
@@ -26,8 +28,6 @@
 - [Focus area 2]
 
 ## Optional sections
-
-> **Important:** Delete any optional section that is empty. Do **not** leave blank headings in the final entry.
 
 ### Equipment / methods (Optional)
 
