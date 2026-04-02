@@ -53,7 +53,6 @@ Future versions may expand to include shared code, datasets, and broader resourc
 
 - Each entry corresponds to one lab, group, or center.
 - Each entry lives in `labs/` as a Markdown file.
-- The directory index is `labs/index.md`.
 
 ## Required fields per entry
 
@@ -90,7 +89,7 @@ The process is designed to be simple and accessible, even for users with limited
 ## Getting started
 
 1. Visit the homepage: `index.md`
-2. Browse entries in `labs/index.md`
+2. Browse entries in the `labs/` directory
 3. Add a new entry using `templates/lab-entry-template.md`
 4. Open a pull request using the provided PR template.
 
