@@ -1,18 +1,17 @@
 # Labs / Groups / Centers Directory
 
-This page indexes v1 entries for the OARSI Biomechanics Resource Hub.
+This directory contains entries for labs, groups, and centers working in osteoarthritis biomechanics and related areas.
 
-> Scope note: entries should be relevant to osteoarthritis biomechanics and closely related human movement research.
+## Browse entries
 
-## Current entries (draft examples)
-
-1. [Example Single-PI OA Biomechanics Lab](example-single-pi-oa-biomechanics-lab.md)
-2. [Example Human Movement OA Lab](example-human-movement-oa-lab.md)
-3. [Example Collaborative OA Biomechanics Center](example-collaborative-oa-biomechanics-center.md)
-4. [Example Translational Movement Core Facility](example-translational-movement-core-facility.md)
-
----
+- Browse all entries in this folder:
+  https://github.com/oarsi-biomech/resource-hub/tree/main/labs
 
 ## Add a new entry
 
-Use the template: [templates/lab-entry-template.md](../templates/lab-entry-template.md)
+Use the template:
+- templates/lab-entry-template.md
+
+Then submit a pull request.
+
+See CONTRIBUTING.md for details.
