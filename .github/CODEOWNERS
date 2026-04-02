@@ -1,0 +1,13 @@
+# Default owner for all repository files
+* @oarsi-biomech/maintainers
+
+# Maintainers and governance
+MAINTAINERS.md @oarsi-biomech/maintainers
+CONTRIBUTING.md @oarsi-biomech/maintainers
+
+# Directory entries and templates
+labs/ @oarsi-biomech/maintainers
+templates/ @oarsi-biomech/maintainers
+
+# GitHub workflow/community files
+.github/ @oarsi-biomech/maintainers
