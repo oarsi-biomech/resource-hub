@@ -1,4 +1,4 @@
 # Default code owner for all files.
 # TODO: Replace @REPOSITORY_OWNER with the actual repository owner account.
 #       Once a maintainers team exists, this can be updated to that team (e.g. @org/maintainers).
-* @REPOSITORY_OWNER
+* @kercostello
