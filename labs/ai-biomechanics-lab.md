@@ -9,7 +9,7 @@
 - **City:** Gainesville, FL
 - **Country:** USA
 - **Website or profile link:** [AI Biomechanics Lab Website](https://costello.mae.ufl.edu/)
-- **Contact method:** k.costello@ufl.edu
+- **Contact method:** [k.costello@ufl.edu](mailto:k.costello@ufl.edu)
 - **Visitor/exchange openness:** maybe
 
 ## Short description
