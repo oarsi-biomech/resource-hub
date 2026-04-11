@@ -1,3 +1,21 @@
+---
+title: AI Biomechanics Lab
+entry_type: lab
+lead_investigators: Dr. Kerry E. Costello
+institution: University of Florida
+city: Gainesville, FL
+country: USA
+visitor_exchange_openness: maybe
+focus_areas:
+  - Knee OA
+  - Hip OA
+  - Gait biomechanics
+  - Wearable sensors
+  - Machine learning
+  - Longitudinal movement analysis
+  - Movement variability
+---
+
 # AI Biomechanics Lab
 
 ## Entry metadata

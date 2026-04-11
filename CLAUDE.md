@@ -11,18 +11,21 @@ v1 scope is intentionally constrained: a curated directory of OA biomechanics la
 ## Architecture
 
 ```
-index.md                         # Site entry point
+index.md                          # Site entry point
+_config.yml                       # Jekyll configuration (defines labs collection)
+_labs/
+  <descriptive-kebab-case>.md     # One file per lab/group/center entry (Jekyll collection)
 labs/
-  index.md                       # Directory section landing page
-  <descriptive-kebab-case>.md    # One file per lab/group/center entry
+  index.md                        # Auto-generated directory listing (Liquid template)
 templates/
-  lab-entry-template.md          # Canonical schema for new entries
+  lab-entry-template.md           # Canonical schema for new entries (includes YAML front matter)
 .github/
   PULL_REQUEST_TEMPLATE.md
   CODEOWNERS
+  ISSUE_TEMPLATE/                 # Structured contribution forms (Issues #4 and #5)
 ```
 
-Each `labs/*.md` file is a self-contained entry. The `labs/index.md` must be kept in sync whenever entries are added or removed.
+Entries live in `_labs/` as a Jekyll collection. Each entry has YAML front matter at the top (title, entry_type, lead_investigators, institution, city, country, visitor_exchange_openness, focus_areas) followed by the full Markdown content. `labs/index.md` auto-generates the listing via Liquid — do not edit it manually to add entries.
 
 ## Content model
 
@@ -34,7 +37,7 @@ The canonical field structure lives in `templates/lab-entry-template.md`. Always
 
 ## Conventions
 
-- New entry filenames: `labs/<descriptive-kebab-case>.md`
+- New entry filenames: `_labs/<descriptive-kebab-case>.md`
 - Internal repo links: relative paths. External links: full URLs.
 - Descriptions: concise, plain language — not promotional.
 - When editing an entry: touch only that entry and `labs/index.md` if needed. Do not reformat unrelated content.
@@ -108,4 +111,4 @@ Before proposing changes, manually confirm:
 - Markdown headings are coherent and render correctly.
 - Internal links resolve to existing files.
 - New entry filenames follow kebab-case convention.
-- `labs/index.md` reflects any added/removed entries (until Jekyll auto-directory is implemented).
+- `labs/index.md` is auto-generated — do not manually add entry links to it.
