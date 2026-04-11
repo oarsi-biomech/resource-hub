@@ -1,0 +1,154 @@
+name: Update Existing Lab / Group / Center Entry
+description: Update information for a lab, group, or center already listed in the directory.
+title: "[Update Entry]: "
+labels: ["update-lab-entry"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to update your existing directory entry.
+
+        **Identify your entry** using the fields below, then fill in only the fields you want to change — leave everything else blank.
+
+        A maintainer will review your update and apply the changes.
+
+        **Not yet in the directory?** Use the [New Entry](https://github.com/oarsi-biomech/resource-hub/issues/new?template=new-lab-entry.yml) form instead.
+
+  - type: markdown
+    attributes:
+      value: "## Identify your entry"
+
+  - type: input
+    id: current-lab-name
+    attributes:
+      label: Current Lab / Group / Center Name
+      description: The name as it currently appears in the directory. Used to locate your entry.
+      placeholder: e.g., AI Biomechanics Lab
+    validations:
+      required: true
+
+  - type: input
+    id: current-lead-investigator
+    attributes:
+      label: Current Lead Investigator / Director Name
+      description: The lead investigator name as currently listed. Used alongside lab name to confirm the correct entry (some labs share similar names).
+      placeholder: e.g., Dr. Jane Smith
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## What would you like to change?
+
+        Fill in only the fields you want to update. Leave any field blank to keep the current value.
+
+  - type: input
+    id: new-lab-name
+    attributes:
+      label: New Lab / Group / Center Name (if changing)
+      placeholder: Leave blank to keep current name
+
+  - type: input
+    id: new-lead-investigators
+    attributes:
+      label: New Lead Investigator(s) / Director(s) (if changing)
+      placeholder: Leave blank to keep current value
+
+  - type: dropdown
+    id: entry-type
+    attributes:
+      label: Entry Type (if changing)
+      options:
+        - "— no change —"
+        - lab
+        - group
+        - center
+
+  - type: input
+    id: institution
+    attributes:
+      label: Institution (if changing)
+      placeholder: Leave blank to keep current value
+
+  - type: input
+    id: city
+    attributes:
+      label: City (if changing)
+      placeholder: Leave blank to keep current value
+
+  - type: input
+    id: country
+    attributes:
+      label: Country (if changing)
+      placeholder: Leave blank to keep current value
+
+  - type: input
+    id: website
+    attributes:
+      label: Website or Profile Link (if changing)
+      placeholder: Leave blank to keep current value
+
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Method (if changing)
+      placeholder: Leave blank to keep current value
+
+  - type: dropdown
+    id: visitor-openness
+    attributes:
+      label: Openness to Visitors / Exchanges (if changing)
+      options:
+        - "— no change —"
+        - "yes"
+        - "maybe"
+        - "no"
+
+  - type: textarea
+    id: short-description
+    attributes:
+      label: Short Description (if changing)
+      description: Leave blank to keep the current description.
+
+  - type: textarea
+    id: focus-areas
+    attributes:
+      label: OA / Biomechanics Focus Areas (if changing)
+      description: If updating, provide the full new list — one focus area per line.
+
+  - type: textarea
+    id: equipment-methods
+    attributes:
+      label: Equipment / Methods (if changing)
+      description: If updating, provide the full new list — one item per line.
+
+  - type: textarea
+    id: github-links
+    attributes:
+      label: GitHub / Code Links (if changing)
+      description: If updating, provide the full new list — one link per line.
+
+  - type: textarea
+    id: datasets
+    attributes:
+      label: Open Datasets / Resources (if changing)
+      description: If updating, provide the full new list — one link per line.
+
+  - type: textarea
+    id: affiliated-centers
+    attributes:
+      label: Affiliated Centers / Resources (if changing)
+      description: If updating, provide the full new list — one per line.
+
+  - type: textarea
+    id: visitor-notes
+    attributes:
+      label: Notes for Visitors / Trainees (if changing)
+      description: Leave blank to keep the current notes.
+
+  - type: textarea
+    id: collaboration-interests
+    attributes:
+      label: Additional Collaboration Interests (if changing)
+      description: If updating, provide the full new list — one per line.
