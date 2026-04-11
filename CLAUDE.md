@@ -41,6 +41,20 @@ The canonical field structure lives in `templates/lab-entry-template.md`. Always
 - When changing the schema: update `README.md`, `CONTRIBUTING.md`, `templates/lab-entry-template.md`, and any index pages together in the same PR.
 - License: MIT — chosen intentionally so content can be freely reused by the community.
 
+## Contribution workflow
+
+Two parallel paths for submitting or updating entries:
+
+**Path 1 — GitHub Issue Forms (primary path for non-GitHub users)**
+- `new-lab-entry` form (`.github/ISSUE_TEMPLATE/new-lab-entry.yml`): structured web form with all required and optional fields. Includes a soft-dedup checkbox ("I searched the directory and my lab is not already listed"). A GitHub Action auto-creates a formatted draft PR from the submission.
+- `update-lab-entry` form (`.github/ISSUE_TEMPLATE/update-lab-entry.yml`): identifies the entry by both lab name AND lead investigator/director name (needed because many biomechanics labs share generic acronym-style names like MOBL/WOBL). All fields are updatable including lab name and director name. A GitHub Action finds the correct file and opens a draft PR.
+- Duplicate detection: when a `new-lab-entry` issue is opened, an Action fuzzy-matches the submitted lab name and lead investigator name against existing `_labs/` entries and comments if a potential duplicate is found — matching on both fields prevents false positives from shared acronyms.
+
+**Path 2 — Direct PR (for GitHub-comfortable contributors)**
+- Fork → edit/create a file in `labs/` (or `_labs/` after Jekyll migration) → open PR using the PR template.
+
+Issue Forms always display all optional fields, so structure is preserved regardless of what contributors fill in. For direct-file edits, `templates/lab-entry-template.md` is the authoritative source; link to it prominently in CONTRIBUTING.md.
+
 ## PR expectations
 
 PR descriptions should cover: what changed, why it changed, and any follow-up needed by maintainers. Use the PR template in `.github/PULL_REQUEST_TEMPLATE.md`. Structural changes (template, governance, folder layout) prefer two maintainer approvals; normal changes need one.
@@ -59,20 +73,21 @@ The project follows a 4-phase plan established at inception:
 - **Phase 3**: Optional structured metadata, GitHub issue forms for submissions, and potentially a map or searchable directory.
 - **Phase 4**: Links to shared code, datasets, and broader community resources.
 
-### Immediate next planned feature: Jekyll auto-directory
+### Planned features by phase
 
-The current `labs/index.md` is maintained manually — every new entry requires a second edit to add it to the listing. The plan is to migrate to a **Jekyll collection** to auto-generate the directory page:
+**Phase 2 (next up):**
+- Jekyll `_labs/` collection migration: move entries to `_labs/`, add `_config.yml`, add YAML front matter to each entry (title, entry_type, institution, city, country, visitor_exchange_openness), auto-generate directory listing. Tracked in GitHub issue. Branch: `issue-<N>-auto-generate-labs-directory`.
+- GitHub Issue Forms for new and update submissions (Issues B and C) — enables non-GitHub contributor path and prevents structural loss.
+- GitHub Action to auto-convert form submissions into formatted draft PRs, with duplicate detection on lab name + lead investigator name (Issue D). Depends on Jekyll migration.
+- Client-side metadata filtering on the directory page: filter by country, visitor/exchange openness, and OA focus area. **Multi-select required** (e.g., visitor openness = "yes" OR "maybe" in one query). Vanilla JS, no external dependencies (Issue E).
 
-- Move entries from `labs/` to `_labs/`
-- Add `_config.yml` with the collection definition
-- Add YAML front matter to each entry (title, entry_type, institution, city, country, visitor_exchange_openness)
-- Rewrite `labs/index.md` to loop over the collection automatically
+**Phase 3:**
+- Pagefind full-text search via GitHub Actions build step. Free for public repos (MIT licensed). Depends on Phase 2 Jekyll migration being complete.
 
-Track this via a GitHub issue and branch named `issue-<N>-auto-generate-labs-directory`. Until this migration happens, `labs/index.md` must still be updated manually when entries are added or removed.
+**Phase 4:**
+- Links to shared code, datasets, and broader community resources.
 
-### Future contribution path consideration
-
-A non-GitHub submission route (e.g. Google Form that maintainers convert into PRs) has been noted as a future option for GitHub-naive contributors. Not in scope until the community grows.
+All tools in the plan (lunr.js, Pagefind, vanilla JS filtering, GitHub Actions) are free for public repositories.
 
 ## Validation (no automated linting)
 
