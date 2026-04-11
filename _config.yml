@@ -1,0 +1,7 @@
+title: OARSI Biomechanics Resource Hub
+description: A community-driven directory for osteoarthritis biomechanics labs, groups, and centers.
+
+collections:
+  labs:
+    output: true
+    permalink: /labs/:name/

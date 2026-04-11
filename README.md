@@ -39,9 +39,11 @@ This is a growing, community-contributed resource — new labs are added regular
 ```text
 .
 ├── index.md
+├── _labs/
+│   └── *.md          # lab/group/center entries (Jekyll collection)
 ├── labs/
-│   ├── index.md
-│   └── *.md
+│   └── index.md      # auto-generated directory listing
+├── _config.yml       # Jekyll configuration
 ├── templates/
 │   └── lab-entry-template.md
 ├── CONTRIBUTING.md

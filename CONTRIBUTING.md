@@ -8,11 +8,15 @@ In v1, the main contribution type is a **new or updated lab/group/center entry**
 
 ## Quick start (recommended)
 
+**New to GitHub?** Use the [new lab entry form](https://github.com/oarsi-biomech/resource-hub/issues/new?template=new-lab-entry.yml) — no markdown editing required.
+
+**Comfortable with GitHub?**
+
 1. Open `templates/lab-entry-template.md`.
-2. Copy it into a new file in `labs/` (for example: `labs/example-lab-name.md`).
-3. Fill required fields.
-4. Remove any optional sections that are empty.
-5. Add your new entry link to `labs/index.md`.
+2. Copy it into a new file in `_labs/` (for example: `_labs/example-lab-name.md`).
+3. Fill required fields. Add the YAML front matter block at the top (see template).
+4. Optional sections can be left with placeholder text — maintainers will clean up as needed.
+5. The directory listing updates automatically — no need to edit `labs/index.md`.
 6. Open a pull request using the repository PR template.
 
 ## Entry quality checklist

@@ -1,3 +1,16 @@
+---
+title: [Entry Name]
+entry_type: [lab | group | center]
+lead_investigators: [Lead investigator(s) / director(s)]
+institution: [Institution]
+city: [City]
+country: [Country]
+visitor_exchange_openness: [yes | maybe | no]
+focus_areas:
+  - [Focus area 1]
+  - [Focus area 2]
+---
+
 # [Entry Name]
 
 > Fill in all required fields.
