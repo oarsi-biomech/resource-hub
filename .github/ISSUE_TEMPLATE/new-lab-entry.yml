@@ -1,0 +1,165 @@
+name: New Lab / Group / Center Entry
+description: Submit a new lab, group, or center to the directory. No GitHub experience needed — just fill out the form.
+title: "[New Entry]: "
+labels: ["new-lab-entry"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing to the OARSI Biomechanics Resource Hub!
+
+        Fill in the required fields below. Optional fields can be left blank — a maintainer will review your submission and format it for the directory.
+
+        **Already in the directory?** Use the [Update Existing Entry](https://github.com/oarsi-biomech/resource-hub/issues/new?template=update-lab-entry.yml) form instead.
+
+  - type: checkboxes
+    id: dedup-check
+    attributes:
+      label: Before you submit
+      options:
+        - label: I have browsed the [directory](https://oarsi-biomech.github.io/resource-hub/labs/) and my lab/group/center is not already listed.
+          required: true
+
+  - type: input
+    id: lab-name
+    attributes:
+      label: Lab / Group / Center Name
+      placeholder: e.g., AI Biomechanics Lab
+    validations:
+      required: true
+
+  - type: dropdown
+    id: entry-type
+    attributes:
+      label: Entry Type
+      options:
+        - lab
+        - group
+        - center
+    validations:
+      required: true
+
+  - type: input
+    id: lead-investigators
+    attributes:
+      label: Lead Investigator(s) / Director(s)
+      description: Full name(s) with title if applicable.
+      placeholder: e.g., Dr. Jane Smith
+    validations:
+      required: true
+
+  - type: input
+    id: institution
+    attributes:
+      label: Institution
+      placeholder: e.g., University of Florida
+    validations:
+      required: true
+
+  - type: input
+    id: city
+    attributes:
+      label: City
+      placeholder: e.g., Gainesville, FL
+    validations:
+      required: true
+
+  - type: input
+    id: country
+    attributes:
+      label: Country
+      placeholder: e.g., USA
+    validations:
+      required: true
+
+  - type: input
+    id: website
+    attributes:
+      label: Website or Profile Link
+      placeholder: https://
+    validations:
+      required: true
+
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Method
+      description: Email address, contact form URL, or other preferred contact.
+      placeholder: e.g., email@institution.edu
+    validations:
+      required: true
+
+  - type: dropdown
+    id: visitor-openness
+    attributes:
+      label: Openness to Visitors / Exchanges
+      description: Are you open to hosting OARSI scholarship awardees or other visitors/exchange researchers?
+      options:
+        - "yes"
+        - "maybe"
+        - "no"
+    validations:
+      required: true
+
+  - type: textarea
+    id: short-description
+    attributes:
+      label: Short Description
+      description: 2–5 sentences describing your group and its relevance to OA biomechanics or human movement research.
+    validations:
+      required: true
+
+  - type: textarea
+    id: focus-areas
+    attributes:
+      label: OA / Biomechanics Focus Areas
+      description: List your key research focus areas, one per line.
+      placeholder: |
+        Knee OA biomechanics
+        Gait analysis
+        Wearable sensors
+    validations:
+      required: true
+
+  - type: textarea
+    id: equipment-methods
+    attributes:
+      label: Equipment / Methods (Optional)
+      description: List major equipment or methods used in your lab, one per line.
+      placeholder: |
+        Instrumented gait analysis
+        Musculoskeletal modeling
+        Force plates
+
+  - type: textarea
+    id: github-links
+    attributes:
+      label: GitHub / Code Links (Optional)
+      description: Links to relevant GitHub repositories or code resources, one per line.
+      placeholder: https://github.com/your-lab
+
+  - type: textarea
+    id: datasets
+    attributes:
+      label: Open Datasets / Resources (Optional)
+      description: Links to any open datasets or shared resources, one per line.
+      placeholder: https://example.org/dataset
+
+  - type: textarea
+    id: affiliated-centers
+    attributes:
+      label: Affiliated Centers / Resources (Optional)
+      description: Names and links to affiliated centers or shared resources, one per line.
+      placeholder: Center for Example Research (https://example.org)
+
+  - type: textarea
+    id: visitor-notes
+    attributes:
+      label: Notes for Visitors / Trainees (Optional)
+      description: Any details about visitor logistics, exchange opportunities, or trainee expectations.
+
+  - type: textarea
+    id: collaboration-interests
+    attributes:
+      label: Additional Collaboration Interests (Optional)
+      description: Any other collaboration interests not covered above, one per line.
