@@ -73,6 +73,19 @@ The project follows a 4-phase plan established at inception:
 - **Phase 3**: Optional structured metadata, GitHub issue forms for submissions, and potentially a map or searchable directory.
 - **Phase 4**: Links to shared code, datasets, and broader community resources.
 
+### Issue execution order
+
+The five open issues have dependencies — work through them in this sequence:
+
+| Order | Issue | Depends on |
+|-------|-------|-----------|
+| 1 | [#3 Jekyll `_labs/` collection migration](https://github.com/oarsi-biomech/resource-hub/issues/3) | nothing — do first, locks schema |
+| 2 | [#4](https://github.com/oarsi-biomech/resource-hub/issues/4) + [#5](https://github.com/oarsi-biomech/resource-hub/issues/5) Issue Forms (one PR) | #3 schema |
+| 3 | [#7 Client-side filtering](https://github.com/oarsi-biomech/resource-hub/issues/7) | #3 |
+| 4 | [#6 Auto-PR GitHub Action](https://github.com/oarsi-biomech/resource-hub/issues/6) | #3 + #4 + #5 |
+
+Update this file after each issue is closed to keep architecture notes current.
+
 ### Planned features by phase
 
 **Phase 2 (next up):**
