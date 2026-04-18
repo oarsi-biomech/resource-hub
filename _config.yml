@@ -3,6 +3,14 @@ description: A community-driven directory for osteoarthritis biomechanics labs, 
 
 theme: minima
 
+header_pages: []
+
+exclude:
+  - CLAUDE.md
+  - CONTRIBUTING.md
+  - MAINTAINERS.md
+  - templates/
+
 collections:
   labs:
     output: true
