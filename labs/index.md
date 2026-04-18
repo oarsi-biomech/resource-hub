@@ -1,5 +1,6 @@
 ---
 title: Labs / Groups / Centers Directory
+layout: default
 ---
 
 # Labs / Groups / Centers Directory
@@ -32,7 +33,7 @@ This directory lists labs, groups, and centers working in osteoarthritis biomech
 [{% assign sorted_labs = site.labs | sort: 'title' %}{% for lab in sorted_labs %}
   {
     "title": {{ lab.title | jsonify }},
-    "url": {{ lab.url | jsonify }},
+    "url": {{ lab.url | relative_url | jsonify }},
     "institution": {{ lab.institution | default: "" | jsonify }},
     "city": {{ lab.city | default: "" | jsonify }},
     "country": {{ lab.country | default: "" | jsonify }},
