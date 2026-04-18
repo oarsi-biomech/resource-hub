@@ -16,3 +16,11 @@
 # Python (optional future-proofing)
 __pycache__/
 *.pyc
+
+# Jekyll
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+.bundle/
+vendor/
