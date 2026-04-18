@@ -1,7 +1,3 @@
----
-layout: default
----
-
 # OARSI Biomechanics Resource Hub
 
 A community-driven directory for osteoarthritis biomechanics labs, groups, and centers.
