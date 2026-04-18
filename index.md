@@ -1,6 +1,10 @@
+---
+layout: default
+---
+
 # OARSI Biomechanics Resource Hub
 
-Welcome to the **OARSI Biomechanics Resource Hub**, a community-driven directory for osteoarthritis biomechanics and closely related human movement research.
+A community-driven directory for osteoarthritis biomechanics labs, groups, and centers.
 
 ## Explore the directory
 
