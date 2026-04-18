@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   process-new-entry:
-    if: contains(github.event.issue.labels.*.name, 'new-lab-entry')
+    if: startsWith(github.event.issue.title, '[New Entry]:')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -39,7 +39,7 @@ jobs:
         run: python scripts/form_to_pr.py new /tmp/issue_body.txt
 
   process-update-entry:
-    if: contains(github.event.issue.labels.*.name, 'update-lab-entry')
+    if: startsWith(github.event.issue.title, '[Update Entry]:')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

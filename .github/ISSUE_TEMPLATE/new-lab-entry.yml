@@ -10,6 +10,8 @@ body:
 
         Fill in the required fields below. Optional fields can be left blank — a maintainer will review your submission and format it for the directory.
 
+        **The title field above** can be left as-is — it will be updated automatically once you submit.
+
         **Already in the directory?** Use the [Update Existing Entry](https://github.com/oarsi-biomech/resource-hub/issues/new?template=update-lab-entry.yml) form instead.
 
   - type: checkboxes

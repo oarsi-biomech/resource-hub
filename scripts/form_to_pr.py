@@ -89,6 +89,14 @@ def gh_comment(issue_number, body):
     )
 
 
+def gh_set_title(issue_number, title):
+    """Update the title of a GitHub issue via the gh CLI."""
+    subprocess.run(
+        ['gh', 'issue', 'edit', str(issue_number), '--title', title],
+        check=True
+    )
+
+
 def run(cmd, **kwargs):
     """Run a shell command, raising on failure."""
     return subprocess.run(cmd, shell=True, check=True, capture_output=True, text=True, **kwargs)
@@ -337,6 +345,8 @@ def main():
             ))
             sys.exit(1)
 
+        gh_set_title(issue_number, f'[New Entry]: {lab_name}')
+
         # Duplicate detection
         duplicates = find_duplicates(lab_name, lead_pi)
         if duplicates:
@@ -381,6 +391,8 @@ will review and proceed with your submission.
     elif mode == 'update':
         current_name = fields.get('Current Lab / Group / Center Name', '').strip()
         current_pi   = fields.get('Current Lead Investigator / Director Name', '').strip()
+
+        gh_set_title(issue_number, f'[Update Entry]: {current_name}')
 
         filepath = find_entry_file(current_name, current_pi)
         if not filepath:
