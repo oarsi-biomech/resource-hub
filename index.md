@@ -2,7 +2,15 @@
 
 Welcome to the **OARSI Biomechanics Resource Hub**, a community-driven directory for osteoarthritis biomechanics and closely related human movement research.
 
-## What v1 includes
+## Explore the directory
+
+➡️ **[Browse labs, groups, and centers](labs/index.md)**
+
+## Contribute
+
+Want to add your lab or update an existing entry? See **[CONTRIBUTING.md](CONTRIBUTING.md)** for instructions — including a no-code option for contributors new to GitHub.
+
+## About v1
 
 Version 1 is intentionally simple and focused:
 
@@ -19,16 +27,3 @@ As the community grows, this hub may expand to include:
 - Additional community knowledge pages
 
 (These are not part of v1 yet.)
-
-## Explore the directory
-
-➡️ Go to the directory index: **[Labs / Groups / Centers](labs/index.md)**
-
-## Contribute
-
-Interested in adding or improving an entry?
-
-- Start with **[CONTRIBUTING.md](CONTRIBUTING.md)**
-- Use the reusable template in **[templates/lab-entry-template.md](templates/lab-entry-template.md)**
-
-Thank you for helping build a useful OA biomechanics community resource.

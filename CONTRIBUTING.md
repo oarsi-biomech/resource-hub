@@ -25,7 +25,6 @@ Before submitting, confirm:
 
 - [ ] The entry is relevant to OA biomechanics or closely related human movement research.
 - [ ] All required fields are completed.
-- [ ] Optional sections are removed if empty (no blank headings).
 - [ ] Links are valid and clearly labeled.
 - [ ] Content is respectful, professional, and clear.
 

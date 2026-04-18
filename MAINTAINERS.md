@@ -8,7 +8,6 @@ Maintainers should:
 
 - Review pull requests for scope fit and clarity.
 - Ensure required fields are present in entries.
-- Ensure optional empty headings are removed.
 - Keep `labs/index.md` synchronized with entry files.
 - Encourage a welcoming contributor experience.
 
