@@ -16,28 +16,29 @@ This directory lists labs, groups, and centers working in osteoarthritis biomech
   <div id="filter-groups" style="display:flex;flex-wrap:wrap;gap:1.5rem;"></div>
 </div>
 
+<p style="margin-bottom:0.75rem;">
+  <strong>Want to add your lab?</strong> Use the <a href="https://github.com/oarsi-biomech/resource-hub/issues/new?template=new-lab-entry.yml">new lab entry form</a>.<br>
+  <strong>Need to update an existing entry?</strong> Use the <a href="https://github.com/oarsi-biomech/resource-hub/issues/new?template=update-lab-entry.yml">update entry form</a>.
+</p>
+
 <p id="entry-count" style="font-size:0.9rem;color:#57606a;margin-bottom:0.75rem;"></p>
 
 <ul id="lab-list"></ul>
 
 </div>
 
-<p style="margin-top:2rem;">
-  <strong>Want to add your lab?</strong> Use the <a href="https://github.com/oarsi-biomech/resource-hub/issues/new?template=new-lab-entry.yml">new lab entry form</a>.<br>
-  <strong>Need to update an existing entry?</strong> Use the <a href="https://github.com/oarsi-biomech/resource-hub/issues/new?template=update-lab-entry.yml">update entry form</a>.
-</p>
-
 <!-- Lab data injected by Jekyll -->
 <script id="labs-data" type="application/json">
 [{% assign sorted_labs = site.labs | sort: 'title' %}{% for lab in sorted_labs %}
   {
     "title": {{ lab.title | jsonify }},
-    "url": {{ lab.url | jsonify }},
+    "url": {{ lab.url | relative_url | jsonify }},
     "institution": {{ lab.institution | default: "" | jsonify }},
     "city": {{ lab.city | default: "" | jsonify }},
     "country": {{ lab.country | default: "" | jsonify }},
     "visitor_exchange_openness": {{ lab.visitor_exchange_openness | default: "" | jsonify }},
-    "focus_areas": {{ lab.focus_areas | default: "" | jsonify }}
+    "focus_areas": {{ lab.focus_areas | default: "" | jsonify }},
+    "lead_investigators": {{ lab.lead_investigators | default: "" | jsonify }}
   }{% unless forloop.last %},{% endunless %}{% endfor %}
 ]
 </script>
@@ -140,13 +141,29 @@ This directory lists labs, groups, and centers working in osteoarthritis biomech
       link.href = lab.url;
       link.textContent = lab.title;
       li.appendChild(link);
-      li.appendChild(document.createTextNode(' \u2014 ' + lab.institution + ', ' + lab.country));
+
+      // PI name, institution, country
+      const parts = [];
+      if (lab.lead_investigators) parts.push(lab.lead_investigators);
+      parts.push(lab.institution + ', ' + lab.country);
+      li.appendChild(document.createTextNode(' \u2014 ' + parts.join(', ')));
+
       if (visitorLabel) {
         const em = document.createElement('em');
         em.style.cssText = 'color:#57606a;font-size:0.85rem;';
         em.textContent = ' (' + visitorLabel + ')';
         li.appendChild(em);
       }
+
+      // Focus areas on a second line
+      const areas = Array.isArray(lab.focus_areas) ? lab.focus_areas : (lab.focus_areas ? [lab.focus_areas] : []);
+      if (areas.length) {
+        const focusLine = document.createElement('div');
+        focusLine.style.cssText = 'font-size:0.85rem;color:#57606a;margin-left:1rem;';
+        focusLine.textContent = areas.slice(0, 4).join(' \u00b7 ') + (areas.length > 4 ? ' \u00b7 ...' : '');
+        li.appendChild(focusLine);
+      }
+
       list.appendChild(li);
     });
   }
