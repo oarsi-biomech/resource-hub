@@ -28,4 +28,4 @@ As the community grows, this hub may expand to include:
 
 Want to be part of this community resource? We welcome new lab entries, updates to existing entries, and other contributions.
 
-**[Submit or update a lab entry](CONTRIBUTING.md)** — no GitHub experience required.
+**[Submit or update a lab entry](https://github.com/oarsi-biomech/resource-hub/blob/main/CONTRIBUTING.md)** — no GitHub experience required.
