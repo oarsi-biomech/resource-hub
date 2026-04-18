@@ -17,16 +17,16 @@ This directory lists labs, groups, and centers working in osteoarthritis biomech
   <div id="filter-groups" style="display:flex;flex-wrap:wrap;gap:1.5rem;"></div>
 </div>
 
-<p id="entry-count" style="font-size:0.9rem;color:#57606a;margin-bottom:0.75rem;"></p>
-
-<ul id="lab-list"></ul>
-
-</div>
-
-<p style="margin-top:2rem;">
+<p style="margin-bottom:1.25rem;">
   <strong>Want to add your lab?</strong> Use the <a href="https://github.com/oarsi-biomech/resource-hub/issues/new?template=new-lab-entry.yml">new lab entry form</a>.<br>
   <strong>Need to update an existing entry?</strong> Use the <a href="https://github.com/oarsi-biomech/resource-hub/issues/new?template=update-lab-entry.yml">update entry form</a>.
 </p>
+
+<p id="entry-count" style="font-size:0.9rem;color:#57606a;margin-bottom:0.75rem;"></p>
+
+<ul id="lab-list" style="list-style:none;padding:0;"></ul>
+
+</div>
 
 <!-- Lab data injected by Jekyll -->
 <script id="labs-data" type="application/json">
@@ -38,7 +38,8 @@ This directory lists labs, groups, and centers working in osteoarthritis biomech
     "city": {{ lab.city | default: "" | jsonify }},
     "country": {{ lab.country | default: "" | jsonify }},
     "visitor_exchange_openness": {{ lab.visitor_exchange_openness | default: "" | jsonify }},
-    "focus_areas": {{ lab.focus_areas | default: "" | jsonify }}
+    "focus_areas": {{ lab.focus_areas | default: "" | jsonify }},
+    "lead_investigators": {{ lab.lead_investigators | default: "" | jsonify }}
   }{% unless forloop.last %},{% endunless %}{% endfor %}
 ]
 </script>
@@ -136,18 +137,48 @@ This directory lists labs, groups, and centers working in osteoarthritis biomech
 
     visible.forEach(lab => {
       const visitorLabel = { yes: 'Open to visitors', maybe: 'Visitors: maybe', no: 'Closed to visitors' }[lab.visitor_exchange_openness] || '';
+
       const li = document.createElement('li');
+      li.style.cssText = 'margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid #e8e8e8;';
+
+      // Title
       const link = document.createElement('a');
       link.href = lab.url;
       link.textContent = lab.title;
+      link.style.cssText = 'font-weight:600;font-size:1rem;';
       li.appendChild(link);
-      li.appendChild(document.createTextNode(' \u2014 ' + lab.institution + ', ' + lab.country));
-      if (visitorLabel) {
-        const em = document.createElement('em');
-        em.style.cssText = 'color:#57606a;font-size:0.85rem;';
-        em.textContent = ' (' + visitorLabel + ')';
-        li.appendChild(em);
+
+      // Meta line: PI · institution, city, country · visitor status
+      const meta = document.createElement('div');
+      meta.style.cssText = 'font-size:0.88rem;color:#57606a;margin-top:0.2rem;';
+      const metaParts = [];
+      if (lab.lead_investigators) metaParts.push(lab.lead_investigators);
+      const location = [lab.institution, lab.city, lab.country].filter(Boolean).join(', ');
+      if (location) metaParts.push(location);
+      if (visitorLabel) metaParts.push(visitorLabel);
+      meta.textContent = metaParts.join(' \u00b7 ');
+      li.appendChild(meta);
+
+      // Focus area tags (up to 4)
+      const areas = Array.isArray(lab.focus_areas) ? lab.focus_areas : (lab.focus_areas ? [lab.focus_areas] : []);
+      if (areas.length) {
+        const tagRow = document.createElement('div');
+        tagRow.style.cssText = 'margin-top:0.4rem;display:flex;flex-wrap:wrap;gap:0.3rem;';
+        areas.slice(0, 4).forEach(area => {
+          const tag = document.createElement('span');
+          tag.style.cssText = 'font-size:0.78rem;background:#f0f4ff;color:#3451b2;border-radius:3px;padding:0.15rem 0.45rem;';
+          tag.textContent = area;
+          tagRow.appendChild(tag);
+        });
+        if (areas.length > 4) {
+          const more = document.createElement('span');
+          more.style.cssText = 'font-size:0.78rem;color:#57606a;padding:0.15rem 0.2rem;';
+          more.textContent = '+' + (areas.length - 4) + ' more';
+          tagRow.appendChild(more);
+        }
+        li.appendChild(tagRow);
       }
+
       list.appendChild(li);
     });
   }
