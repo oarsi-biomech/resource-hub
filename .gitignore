@@ -16,3 +16,8 @@
 # Python (optional future-proofing)
 __pycache__/
 *.pyc
+
+# Jekyll local build
+_site/
+.jekyll-cache/
+Gemfile.lock
