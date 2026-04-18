@@ -17,7 +17,6 @@
 ## Entry checklist (if applicable)
 
 - [ ] Required fields are completed.
-- [ ] Optional empty sections were removed (no blank headings).
 - [ ] Entry is linked from `labs/index.md`.
 - [ ] Links and contact details were reviewed.
 
