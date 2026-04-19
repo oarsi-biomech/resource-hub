@@ -1,7 +1,7 @@
 ---
 city: Test place
 country: Test country
-entry_type: lab
+entry_type: None
 focus_areas:
 - gait
 - ankle
@@ -9,10 +9,11 @@ focus_areas:
 - hand
 - electromyography
 institution: University of Test
-lead_investigators: Dr. Joe
+lead_investigators: Dr. Jane
 title: Test Lab 5
-visitor_exchange_openness: 'yes'
+visitor_exchange_openness: None
 ---
+
 
 # Test Lab 5
 
