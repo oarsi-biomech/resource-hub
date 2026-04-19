@@ -1,0 +1,89 @@
+.lab-back {
+  font-size: 0.9rem;
+  margin: 0 0 1.25rem;
+}
+
+.lab-back a {
+  color: #57606a;
+  text-decoration: none;
+}
+
+.lab-back a:hover {
+  color: #0969da;
+  text-decoration: underline;
+}
+
+.lab-title {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+.markdown-body .lab-meta-table {
+  display: table;
+  width: 100%;
+  max-width: 48rem;
+  margin: 0 0 2rem;
+  border-collapse: collapse;
+  background: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 0.95rem;
+}
+
+.markdown-body .lab-meta-table tbody tr {
+  background: transparent;
+  border: none;
+  border-top: 1px solid #d0d7de;
+}
+
+.markdown-body .lab-meta-table tbody tr:first-child {
+  border-top: none;
+}
+
+.markdown-body .lab-meta-table tbody tr:nth-child(2n) {
+  background: transparent;
+}
+
+.markdown-body .lab-meta-table th,
+.markdown-body .lab-meta-table td {
+  padding: 0.55rem 0.85rem;
+  text-align: left;
+  vertical-align: top;
+  border: none;
+}
+
+.markdown-body .lab-meta-table th {
+  width: 12rem;
+  font-weight: 600;
+  color: #57606a;
+  background: #f6f8fa;
+  border-right: 1px solid #d0d7de;
+}
+
+.markdown-body .lab-meta-table td {
+  color: #24292f;
+}
+
+.lab-visitor {
+  display: inline-block;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.lab-visitor-yes   { background: #dafbe1; color: #116329; }
+.lab-visitor-maybe { background: #fff8c5; color: #7d4e00; }
+.lab-visitor-no    { background: #eaeef2; color: #57606a; }
+
+@media (max-width: 600px) {
+  .markdown-body .lab-meta-table th {
+    width: 8rem;
+  }
+  .markdown-body .lab-meta-table th,
+  .markdown-body .lab-meta-table td {
+    padding: 0.45rem 0.65rem;
+    font-size: 0.9rem;
+  }
+}

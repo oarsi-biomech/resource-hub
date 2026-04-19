@@ -44,6 +44,37 @@ The canonical field structure lives in `templates/lab-entry-template.md`. Always
 - When changing the schema: update `README.md`, `CONTRIBUTING.md`, `templates/lab-entry-template.md`, and any index pages together in the same PR.
 - License: MIT — chosen intentionally so content can be freely reused by the community.
 
+## UI and styling conventions
+
+The site uses the GitHub Pages default theme (Primer). All custom UI should stay visually consistent with the rest of the site — think "GitHub README + small additions," not a custom-designed product page. Do not introduce Google Fonts, custom typography systems, paper/grain textures, or bespoke layouts. Inherit Primer's system font stack and default markdown styling wherever possible.
+
+**Palette** (reuse across new UI, do not invent new colors):
+
+| Role | Hex |
+|------|-----|
+| Surface bg | `#ffffff` |
+| Subtle bg / table header | `#f6f8fa` |
+| Border | `#d0d7de` |
+| Muted border | `#eaeef2` |
+| Body text | `#24292f` |
+| Muted text | `#57606a` |
+| Link | `#0969da` |
+| Success / "yes" bg · text | `#dafbe1` · `#116329` |
+| Warning / "maybe" bg · text | `#fff8c5` · `#7d4e00` |
+| Neutral / "no" bg · text | `#eaeef2` · `#57606a` |
+
+These match the palette already in use in `labs/index.md` and `_layouts/lab.html`.
+
+**Presenting structured data:** Use plain HTML tables with a 2-column label/value layout (`#f6f8fa` label cells, white value cells, `#d0d7de` borders, `border-radius: 6px`). See `.lab-meta-table` in `assets/css/lab.css` for the reference pattern. Reuse `.lab-meta-table` if the data fits the label/value shape; otherwise match its styling rather than inventing a new one. Prefer tables over badge grids or card layouts for dense metadata.
+
+**Visitor openness badges:** The `.lab-visitor`, `.lab-visitor-yes`, `.lab-visitor-maybe`, `.lab-visitor-no` classes are the canonical way to render visitor status. Reuse them rather than defining new badges.
+
+**Empty/optional content:** Follow the "messy input → clean output" principle — the contributor doesn't have to delete placeholder sections; the layout hides them at render time. `_layouts/lab.html` contains an inline JS block that strips the duplicate "Entry metadata" heading, removes optional sections whose body is empty (empty `<li>`, whitespace, or `[bracketed placeholder]` text), and drops empty `<li>` children. Any new layout handling similar content should reuse this pattern.
+
+**CSS specificity note:** Primer's `.markdown-body` selectors (e.g., `.markdown-body h1`, `.markdown-body ul li`) often override single-class rules. When overriding Primer defaults, prefix with `.markdown-body` (e.g., `.markdown-body .lab-meta-table th { ... }`) to match specificity rather than reaching for `!important`.
+
+**Scope:** `assets/css/lab.css` is loaded only via `_layouts/lab.html`. Add page-scoped stylesheets the same way (per-layout `<link>`) instead of putting everything in a site-wide stylesheet, so the directory page and home page stay visually independent.
+
 ## Contribution workflow
 
 Two parallel paths for submitting or updating entries:

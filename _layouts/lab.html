@@ -1,0 +1,131 @@
+---
+layout: default
+---
+<link rel="stylesheet" href="{{ '/assets/css/lab.css' | relative_url }}">
+
+<p class="lab-back"><a href="{{ '/labs/' | relative_url }}">&larr; Back to directory</a></p>
+
+<h1 class="lab-title">{{ page.title }}</h1>
+
+<table class="lab-meta-table">
+  <tbody>
+    {% if page.entry_type %}
+    <tr><th scope="row">Entry type</th><td>{{ page.entry_type }}</td></tr>
+    {% endif %}
+    {% if page.lead_investigators %}
+    <tr><th scope="row">Lead investigator(s)</th><td>{{ page.lead_investigators }}</td></tr>
+    {% endif %}
+    {% if page.institution %}
+    <tr><th scope="row">Institution</th><td>{{ page.institution }}</td></tr>
+    {% endif %}
+    {% if page.city or page.country %}
+    <tr><th scope="row">Location</th><td>{% if page.city %}{{ page.city }}{% endif %}{% if page.city and page.country %}, {% endif %}{% if page.country %}{{ page.country }}{% endif %}</td></tr>
+    {% endif %}
+    {% if page.visitor_exchange_openness %}
+    {% assign v = page.visitor_exchange_openness %}
+    <tr><th scope="row">Visitors</th><td>
+      <span class="lab-visitor lab-visitor-{{ v }}">
+        {% case v %}
+          {% when 'yes' %}Open to visitors
+          {% when 'maybe' %}Visitors: maybe
+          {% when 'no' %}Closed to visitors
+          {% else %}{{ v }}
+        {% endcase %}
+      </span>
+    </td></tr>
+    {% endif %}
+    {% if page.focus_areas and page.focus_areas.size > 0 %}
+    <tr><th scope="row">Focus areas</th><td>{{ page.focus_areas | join: ', ' }}</td></tr>
+    {% endif %}
+  </tbody>
+</table>
+
+<article class="lab-body">
+  {{ content }}
+</article>
+
+<script>
+(function () {
+  const body = document.querySelector('.lab-body');
+  if (!body) return;
+
+  const firstH1 = body.querySelector('h1');
+  if (firstH1) firstH1.remove();
+
+  function siblingSection(heading) {
+    const level = parseInt(heading.tagName.substring(1), 10);
+    const nodes = [];
+    let n = heading.nextSibling;
+    while (n) {
+      if (n.nodeType === 1) {
+        const tag = n.tagName;
+        if (/^H[1-6]$/.test(tag)) {
+          const nLevel = parseInt(tag.substring(1), 10);
+          if (nLevel <= level) break;
+        }
+      }
+      nodes.push(n);
+      n = n.nextSibling;
+    }
+    return nodes;
+  }
+
+  function isPlaceholderText(s) {
+    return /^\s*\[.*\]\s*$/.test(s);
+  }
+
+  function isEmptyListItem(li) {
+    const txt = (li.textContent || '').trim();
+    if (!txt) return true;
+    if (isPlaceholderText(txt)) return true;
+    return false;
+  }
+
+  function isEmptySection(nodes) {
+    for (const n of nodes) {
+      if (n.nodeType === 3) {
+        if ((n.textContent || '').trim() !== '') return false;
+        continue;
+      }
+      if (n.nodeType !== 1) continue;
+      const el = n;
+      const tag = el.tagName;
+      if (tag === 'UL' || tag === 'OL') {
+        const items = el.querySelectorAll(':scope > li');
+        let hasReal = false;
+        items.forEach(li => { if (!isEmptyListItem(li)) hasReal = true; });
+        if (hasReal) return false;
+      } else {
+        const txt = (el.textContent || '').trim();
+        if (txt && !isPlaceholderText(txt)) return false;
+      }
+    }
+    return true;
+  }
+
+  const h2s = Array.from(body.querySelectorAll('h2'));
+  for (const h of h2s) {
+    if ((h.textContent || '').trim().toLowerCase() === 'entry metadata') {
+      siblingSection(h).forEach(n => n.parentNode && n.parentNode.removeChild(n));
+      h.remove();
+      break;
+    }
+  }
+
+  const headings = Array.from(body.querySelectorAll('h2, h3'));
+  for (const h of headings) {
+    const section = siblingSection(h);
+    if (isEmptySection(section)) {
+      section.forEach(n => n.parentNode && n.parentNode.removeChild(n));
+      h.remove();
+    }
+  }
+
+  body.querySelectorAll('ul, ol').forEach(list => {
+    Array.from(list.children).forEach(li => {
+      if (li.tagName === 'LI' && isEmptyListItem(li)) li.remove();
+    });
+    if (!list.querySelector(':scope > li')) list.remove();
+  });
+})();
+</script>
