@@ -113,33 +113,11 @@ body:
       label: Short Description (if changing)
       description: Leave blank to keep the current description.
 
-  - type: dropdown
+  - type: textarea
     id: focus-areas
     attributes:
       label: OA / Biomechanics Focus Areas (if changing)
-      description: If updating, select the full new list. Leave blank to keep the current focus areas.
-      multiple: true
-      options:
-        - ankle
-        - electromyography
-        - gait
-        - Gait biomechanics
-        - hand
-        - Hip OA
-        - imaging
-        - knee
-        - Knee OA
-        - Longitudinal movement analysis
-        - Machine learning
-        - Movement variability
-        - shoulder
-        - Wearable sensors
-
-  - type: textarea
-    id: focus-areas-other
-    attributes:
-      label: Other Focus Areas Not Listed (if changing)
-      description: Additional focus areas not in the dropdown above, one per line. Combined with the dropdown selections to form the full new list.
+      description: If updating, provide the full new list — one focus area per line.
 
   - type: textarea
     id: equipment-methods

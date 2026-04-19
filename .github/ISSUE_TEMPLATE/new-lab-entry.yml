@@ -111,38 +111,17 @@ body:
     validations:
       required: true
 
-  - type: dropdown
+  - type: textarea
     id: focus-areas
     attributes:
       label: OA / Biomechanics Focus Areas
-      description: Select all that apply. If yours isn't listed, pick the closest match(es) and add specifics in the field below.
-      multiple: true
-      options:
-        - ankle
-        - electromyography
-        - gait
-        - Gait biomechanics
-        - hand
-        - Hip OA
-        - imaging
-        - knee
-        - Knee OA
-        - Longitudinal movement analysis
-        - Machine learning
-        - Movement variability
-        - shoulder
-        - Wearable sensors
+      description: List your key research focus areas, one per line.
+      placeholder: |
+        Knee OA biomechanics
+        Gait analysis
+        Wearable sensors
     validations:
       required: true
-
-  - type: textarea
-    id: focus-areas-other
-    attributes:
-      label: Other Focus Areas Not Listed (Optional)
-      description: Additional focus areas not in the dropdown above, one per line. Maintainers may add new entries here to the shared list.
-      placeholder: |
-        Cartilage mechanics
-        Neuromuscular control
 
   - type: textarea
     id: equipment-methods

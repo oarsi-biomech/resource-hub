@@ -51,23 +51,6 @@ def parse_list_field(value):
     return lines
 
 
-def parse_multi_dropdown(value):
-    """Parse a multi-select dropdown value (comma-separated on one line)."""
-    return [item.strip() for item in (value or '').split(',') if item.strip()]
-
-
-def merge_focus_areas(dropdown_value, other_value):
-    """Merge dropdown multi-select and 'other' textarea into a deduped list."""
-    merged = []
-    seen = set()
-    for item in parse_multi_dropdown(dropdown_value) + parse_list_field(other_value):
-        key = item.lower()
-        if key not in seen:
-            seen.add(key)
-            merged.append(item)
-    return merged
-
-
 # ── Utilities ─────────────────────────────────────────────────────────────────
 
 def to_kebab(s):
@@ -155,10 +138,7 @@ def build_new_entry(fields):
     contact     = fields.get('Contact Method', '').strip()
     visitor     = fields.get('Openness to Visitors / Exchanges', '').strip()
     description = fields.get('Short Description', '').strip()
-    focus_list  = merge_focus_areas(
-        fields.get('OA / Biomechanics Focus Areas', ''),
-        fields.get('Other Focus Areas Not Listed (Optional)', ''),
-    )
+    focus_list  = parse_list_field(fields.get('OA / Biomechanics Focus Areas', ''))
 
     equipment      = parse_list_field(fields.get('Equipment / Methods (Optional)', ''))
     github_links   = parse_list_field(fields.get('GitHub / Code Links (Optional)', ''))
@@ -282,11 +262,9 @@ def apply_update(filepath, fields):
         if val and val != '— no change —':
             fm[fm_key] = val
 
-    focus_dropdown = fields.get('OA / Biomechanics Focus Areas (if changing)', '').strip()
-    focus_other    = fields.get('Other Focus Areas Not Listed (if changing)', '').strip()
-    focus_merged   = merge_focus_areas(focus_dropdown, focus_other) if (focus_dropdown or focus_other) else None
-    if focus_merged:
-        fm['focus_areas'] = focus_merged
+    focus_raw = fields.get('OA / Biomechanics Focus Areas (if changing)', '').strip()
+    if focus_raw:
+        fm['focus_areas'] = parse_list_field(focus_raw)
 
     # Write updated front matter back
     fm_str = yaml.dump(fm, default_flow_style=False, allow_unicode=True).strip()
@@ -295,6 +273,7 @@ def apply_update(filepath, fields):
     # ── Update markdown sections ──
     section_map = [
         ('Short Description (if changing)',                      '## Short description'),
+        ('OA / Biomechanics Focus Areas (if changing)',         '## OA / biomechanics focus areas'),
         ('Equipment / Methods (if changing)',                    '### Equipment / methods'),
         ('GitHub / Code Links (if changing)',                    '### GitHub / code links'),
         ('Open Datasets / Resources (if changing)',              '### Open datasets / resources'),
@@ -309,9 +288,6 @@ def apply_update(filepath, fields):
         items = parse_list_field(val)
         new_body = bullet_list(items) if items and heading.startswith('###') else val
         content = replace_section(content, heading, new_body)
-
-    if focus_merged:
-        content = replace_section(content, '## OA / biomechanics focus areas', bullet_list(focus_merged))
 
     with open(filepath, 'w') as f:
         f.write(content)
