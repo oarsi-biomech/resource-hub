@@ -381,6 +381,7 @@ will review and proceed with your submission.
             commit_msg=f'Add {lab_name} entry (from issue #{issue_number})',
             pr_title=f'New entry: {lab_name}',
             pr_body=(
+                f'Closes #{issue_number}\n\n'
                 f'Auto-generated from issue #{issue_number}.\n\n'
                 f'**Please review:** check that all fields are correct and the entry '
                 f'is relevant to OA biomechanics or closely related research before merging.'
@@ -421,6 +422,7 @@ corrected name.
             commit_msg=f'Update {display_name} entry (from issue #{issue_number})',
             pr_title=f'Update entry: {display_name}',
             pr_body=(
+                f'Closes #{issue_number}\n\n'
                 f'Auto-generated update from issue #{issue_number}.\n\n'
                 f'**Please review the diff** to confirm only intended fields were changed.'
             ),
