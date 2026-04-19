@@ -19,6 +19,8 @@ In v1, the main contribution type is a **new or updated lab/group/center entry**
 5. The directory listing updates automatically — no need to edit `labs/index.md`.
 6. Open a pull request using the repository PR template.
 
+> Want to preview your entry locally before submitting? See the **Local preview** section in the [README](README.md#local-preview).
+
 ## Entry quality checklist
 
 Before submitting, confirm:
