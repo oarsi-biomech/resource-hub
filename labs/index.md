@@ -138,7 +138,7 @@ This directory lists labs, groups, and centers working in osteoarthritis biomech
     }
 
     visible.forEach(lab => {
-      const visitorLabel = { yes: 'Open to visitors', maybe: 'Visitors: maybe', no: 'Closed to visitors' }[lab.visitor_exchange_openness] || '';
+      const visitorLabel = { yes: 'Open to visitors', maybe: 'May be open to visitors', no: 'Closed to visitors' }[lab.visitor_exchange_openness] || '';
       const li = document.createElement('li');
       const link = document.createElement('a');
       link.href = lab.url;

@@ -11,7 +11,7 @@ focus_areas:
 institution: University of Test
 lead_investigators: Dr. Jane
 title: Test Lab 5
-visitor_exchange_openness: None
+visitor_exchange_openness: no
 ---
 
 
