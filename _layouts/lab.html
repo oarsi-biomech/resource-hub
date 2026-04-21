@@ -52,6 +52,45 @@ layout: default
   const firstH1 = body.querySelector('h1');
   if (firstH1) firstH1.remove();
 
+  // Extract website and contact from Entry metadata before it is stripped
+  (function injectMetaRows() {
+    const table = document.querySelector('.lab-meta-table tbody');
+    if (!table) return;
+
+    function extractField(labelText) {
+      const lis = body.querySelectorAll('li');
+      for (const li of lis) {
+        const strong = li.querySelector('strong');
+        if (!strong) continue;
+        if (strong.textContent.toLowerCase().includes(labelText.toLowerCase())) {
+          const clone = li.cloneNode(true);
+          clone.querySelector('strong').remove();
+          return clone.innerHTML.replace(/^\s*:?\s*/, '').trim();
+        }
+      }
+      return null;
+    }
+
+    const fields = [
+      { label: 'Website or profile link', heading: 'Website' },
+      { label: 'Contact method',          heading: 'Contact' },
+    ];
+
+    fields.forEach(({ label, heading }) => {
+      const value = extractField(label);
+      if (!value) return;
+      const tr = document.createElement('tr');
+      const th = document.createElement('th');
+      th.setAttribute('scope', 'row');
+      th.textContent = heading;
+      const td = document.createElement('td');
+      td.innerHTML = value;
+      tr.appendChild(th);
+      tr.appendChild(td);
+      table.appendChild(tr);
+    });
+  })();
+
   function siblingSection(heading) {
     const level = parseInt(heading.tagName.substring(1), 10);
     const nodes = [];

@@ -38,7 +38,8 @@ This directory lists labs, groups, and centers working in osteoarthritis biomech
     "country": {{ lab.country | default: "" | jsonify }},
     "visitor_exchange_openness": {{ lab.visitor_exchange_openness | default: "" | jsonify }},
     "focus_areas": {{ lab.focus_areas | default: "" | jsonify }},
-    "lead_investigators": {{ lab.lead_investigators | default: "" | jsonify }}
+    "lead_investigators": {{ lab.lead_investigators | default: "" | jsonify }},
+    "equipment": {% assign _esplit = lab.content | split: '>Equipment / methods<' %}{% if _esplit.size > 1 %}{% assign _esec = _esplit[1] | split: '<h' | first %}{% assign _elis = _esec | split: '<li>' %}{% assign _eparts = "" %}{% for _eli in _elis offset: 1 %}{% assign _eclean = _eli | split: '</li>' | first | strip_html | strip %}{% if _eclean != "" %}{% assign _ecj = _eclean | jsonify %}{% if _eparts == "" %}{% assign _eparts = _ecj %}{% else %}{% assign _eparts = _eparts | append: "," | append: _ecj %}{% endif %}{% endif %}{% endfor %}[{{ _eparts }}]{% else %}[]{% endif %}
   }{% unless forloop.last %},{% endunless %}{% endfor %}
 ]
 </script>
@@ -51,13 +52,15 @@ This directory lists labs, groups, and centers working in osteoarthritis biomech
   const filterState = {
     country: new Set(),
     visitor_exchange_openness: new Set(),
-    focus_areas: new Set()
+    focus_areas: new Set(),
+    equipment: new Set()
   };
 
   const filterMeta = [
     { key: 'country',                   label: 'Country' },
     { key: 'visitor_exchange_openness', label: 'Open to visitors' },
     { key: 'focus_areas',               label: 'Focus area' },
+    { key: 'equipment',                 label: 'Equipment / methods' },
   ];
 
   // ── Collect unique values per dimension ─────────────────────────────
