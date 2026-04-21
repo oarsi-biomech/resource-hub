@@ -76,6 +76,17 @@ layout: default
       { label: 'Contact method',          heading: 'Contact' },
     ];
 
+    function autoLink(html) {
+      // If already contains an anchor tag, leave it alone
+      if (/<a\s/i.test(html)) return html;
+      const text = html.trim();
+      if (/^https?:\/\//i.test(text))
+        return '<a href="' + text + '">' + text + '</a>';
+      if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(text))
+        return '<a href="mailto:' + text + '">' + text + '</a>';
+      return html;
+    }
+
     fields.forEach(({ label, heading }) => {
       const value = extractField(label);
       if (!value) return;
@@ -84,7 +95,7 @@ layout: default
       th.setAttribute('scope', 'row');
       th.textContent = heading;
       const td = document.createElement('td');
-      td.innerHTML = value;
+      td.innerHTML = autoLink(value);
       tr.appendChild(th);
       tr.appendChild(td);
       table.appendChild(tr);
