@@ -81,7 +81,6 @@ This directory lists labs, groups, and centers working in osteoarthritis biomech
     if (!values.length) return;
 
     const group = document.createElement('details');
-    group.open = true;
     group.style.cssText = 'min-width:160px;';
 
     const heading = document.createElement('summary');
