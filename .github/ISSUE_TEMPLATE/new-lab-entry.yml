@@ -117,9 +117,8 @@ body:
       label: OA / Biomechanics Focus Areas
       description: List your key research focus areas, one per line.
       placeholder: |
-        Knee OA biomechanics
-        Gait analysis
-        Wearable sensors
+        hip
+        gait
     validations:
       required: true
 
@@ -129,9 +128,9 @@ body:
       label: Equipment / Methods (Optional)
       description: List major equipment or methods used in your lab, one per line.
       placeholder: |
-        Instrumented gait analysis
-        Musculoskeletal modeling
-        Force plates
+        musculoskeletal modeling
+        force plates
+        imaging
 
   - type: textarea
     id: github-links
