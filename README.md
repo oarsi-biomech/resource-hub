@@ -4,6 +4,8 @@ The **OARSI Biomechanics Resource Hub** is a community-driven directory for oste
 
 It is designed to help researchers discover labs, connect with collaborators, and explore shared resources across the field.
 
+Find the site at: [https://oarsi-biomech.github.io/resource-hub/](https://oarsi-biomech.github.io/resource-hub/)
+
 Version 1 (v1) focuses on one core use case:
 
 - A curated directory of labs, groups, and centers.
